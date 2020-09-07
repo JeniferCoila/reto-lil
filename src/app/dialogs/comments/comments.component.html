@@ -1,0 +1,45 @@
+<div class="comments-container">
+  <div *ngIf="!loadComment">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="loadComment">
+    <div *ngIf="commentList.length > 0">
+      <mat-card
+        class="example-card card-comment"
+        *ngFor="let comment of commentList"
+      >
+        <mat-card-header>
+          <div
+            mat-card-avatar
+            [ngStyle]="{
+              'background-image': 'url(' + comment.owner.picture + ')'
+            }"
+            class="example-header-image"
+          ></div>
+          <mat-card-title
+            >{{ comment.owner.firstName }}
+            {{ comment.owner.lastName }}</mat-card-title
+          >
+          <mat-card-subtitle
+            ><span>{{ comment.message }}</span></mat-card-subtitle
+          >
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div *ngIf="commentList.length === 0">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title> No hay comentarios para mostrar</mat-card-title>
+        </mat-card-header>
+        <!--  <mat-card-content>
+              <p>
+                <span>{{ comment.message }}</span>
+                
+              </p>
+      
+            </mat-card-content> -->
+      </mat-card>
+    </div>
+  </div>
+</div>

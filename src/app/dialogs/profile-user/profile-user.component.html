@@ -1,0 +1,32 @@
+ <div *ngIf="!loadProfile" class="d-flex">
+    <mat-spinner></mat-spinner>
+ </div>
+
+<div *ngIf="loadProfile && profileData.firstName">
+    <div >
+        <mat-card class="example-card" >
+            <mat-card-header>
+              <div
+                mat-card-avatar
+                [ngStyle]="{
+                  'background-image': 'url(' + profileData.picture + ')'
+                }"
+                class="profile-image"
+              ></div>
+              <mat-card-title
+                >{{ profileData.firstName }}
+                {{ profileData.lastName }}</mat-card-title
+              >
+              <mat-card-subtitle>{{ profileData.location.city }} - {{ profileData.location.country }}</mat-card-subtitle>
+            </mat-card-header>
+<!--             <mat-card-content>
+              <p>
+                <span>{{ comment.message }}</span>
+                
+              </p>
+      
+            </mat-card-content> -->
+          </mat-card>
+    </div>
+
+</div> 
